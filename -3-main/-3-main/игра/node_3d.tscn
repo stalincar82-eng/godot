@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dl0me31w6hahn"]
+
+[ext_resource type="PackedScene" uid="uid://c5a48moyn1ywo" path="res://анимки/animation.glb" id="1_a202f"]
+[ext_resource type="Script" uid="uid://c6u2dxktqovpa" path="res://character_body_3d.gd" id="1_noarx"]
+
+[node name="Node3D" type="Node3D" unique_id=193203979]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=211591491]
+script = ExtResource("1_noarx")
+
+[node name="animation" parent="CharacterBody3D" unique_id=1439371528 instance=ExtResource("1_a202f")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1564549136]
+
+[node name="AnimationTree" type="AnimationTree" parent="CharacterBody3D" unique_id=82412476]

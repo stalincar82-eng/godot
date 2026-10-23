@@ -1,0 +1,78 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="игра"
+run/main_scene="uid://bmr0u1yku5rw4"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[input]
+
+move_forward={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":87)]}
+move_back={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":83)]}
+move_left={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":65)]}
+move_right={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":68)]}
+jump={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":32)]}
+run={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":4194325)]}
+climb={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":69)]}
+elbow={"deadzone":0.5,"events":[Object(InputEventKey,"physical_keycode":70)]}
+
+[importer_defaults]
+
+scene={
+"_subresources": {},
+"animation/fps": 30,
+"animation/import": true,
+"animation/import_rest_as_RESET": false,
+"animation/remove_immutable_tracks": true,
+"animation/trimming": true,
+"array_mesh/deduplicate_surfaces": true,
+"fbx/allow_geometry_helper_nodes": false,
+"fbx/embedded_image_handling": 1,
+"fbx/importer": 0,
+"fbx/naming_version": 2,
+"import_script/path": "",
+"materials/extract": 0,
+"materials/extract_format": 0,
+"materials/extract_path": "",
+"mesh_library/use_node_names_as_mesh_names": false,
+"meshes/create_shadow_meshes": true,
+"meshes/ensure_tangents": true,
+"meshes/force_disable_compression": false,
+"meshes/generate_lods": true,
+"meshes/light_baking": 1,
+"meshes/lightmap_texel_size": 0.2,
+"nodes/apply_root_scale": true,
+"nodes/import_as_skeleton_bones": false,
+"nodes/root_name": "",
+"nodes/root_scale": 1.0,
+"nodes/root_script": null,
+"nodes/root_type": "",
+"nodes/use_name_suffixes": true,
+"nodes/use_node_type_suffixes": true,
+"skins/use_named_skins": true
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

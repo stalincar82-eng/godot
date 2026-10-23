@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://bmr0u1yku5rw4"]
+
+[ext_resource type="PackedScene" uid="uid://c5a48moyn1ywo" path="res://анимки/animation.glb" id="1_model"]
+[ext_resource type="Script" path="res://character_body_3d.gd" id="2_player"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fj7yv"]
+albedo_color = Color(0.15386961, 0.2246812, 0.06732211, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn063"]
+albedo_color = Color(0, 0.23244044, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gv5m4"]
+size = Vector3(100, 2, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jdy72"]
+size = Vector3(100, 2, 100)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jdy72"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gv5m4"]
+sky_top_color = Color(0.08942759, 0, 0.10540448, 1)
+sky_horizon_color = Color(0.17573781, 0, 0.17573781, 1)
+
+[sub_resource type="Sky" id="Sky_f3sb7"]
+sky_material = SubResource("ProceduralSkyMaterial_gv5m4")
+
+[sub_resource type="Environment" id="Environment_1e0w5"]
+background_mode = 2
+sky = SubResource("Sky_f3sb7")
+
+[node name="World" type="Node3D" unique_id=809594346]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2084473347]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=824678881]
+position = Vector3(0, -1, 0)
+material_override = SubResource("StandardMaterial3D_fj7yv")
+material_overlay = SubResource("StandardMaterial3D_xn063")
+mesh = SubResource("BoxMesh_gv5m4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=2120483]
+position = Vector3(0, -1, 0)
+shape = SubResource("BoxShape3D_jdy72")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1794105709]
+script = ExtResource("2_player")
+
+[node name="animation" parent="Player" unique_id=1439371528 instance=ExtResource("1_model")]
+position = Vector3(0, 1, 0)
+scale = Vector3(100, 100, 100)
+rotation = Vector3(-1.5707963, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=284287613]
+position = Vector3(0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_jdy72")
+
+[node name="CameraPivot" type="Node3D" parent="Player" unique_id=691850079]
+position = Vector3(0, 1.35, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/CameraPivot" unique_id=478978286]
+position = Vector3(0, 0.6, 5)
+rotation = Vector3(-0.14, 0, 0)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=129312870]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=759975666]
+environment = SubResource("Environment_1e0w5")
